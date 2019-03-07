@@ -1,5 +1,6 @@
 final_result = {}
 
+#内部生成器
 def sales_sum(pro_name):
     total = 0
     nums = []
@@ -10,8 +11,10 @@ def sales_sum(pro_name):
             break
         total += x
         nums.append(x)
+    #子生成器返回值到父生成器
     return total, nums
 
+#外部生成器
 def middle(key):
     while True:
         final_result[key] = yield from sales_sum(key)
