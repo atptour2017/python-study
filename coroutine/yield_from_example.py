@@ -1,4 +1,4 @@
-
+import inspect
 
 final_result = {}
 
@@ -13,13 +13,16 @@ def sales_sum(pro_name):
             break
         total += x
         nums.append(x)
+    print('prepare to return')
     #子生成器返回值到父生成器
     return total, nums
 
 #外部生成器
 def middle(key):
     while True:
-        final_result[key] = yield from sales_sum(key)
+        a=sales_sum(key)
+        final_result[key] = yield from a    #sales_sum(key)
+        print(inspect.getgeneratorstate(a))
         print(key+"销量统计完成！！.")
 
 def main():
@@ -36,6 +39,7 @@ def main():
         for value in data_set:
             m.send(value)   # 给协程传递每一组的值
         m.send(None)
+        print(inspect.getgeneratorstate(m))
     print("final_result:", final_result)
 
 if __name__=='__main__':
