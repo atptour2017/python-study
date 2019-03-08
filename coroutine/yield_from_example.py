@@ -1,3 +1,5 @@
+
+
 final_result = {}
 
 #内部生成器
@@ -29,7 +31,8 @@ def main():
     for key, data_set in data_sets.items():
         print("start key:", key)
         m = middle(key)
-        m.send(None) # 预激middle协程
+        next(m) #用next代替send预激middle协程
+        #m.send(None) # 预激middle协程
         for value in data_set:
             m.send(value)   # 给协程传递每一组的值
         m.send(None)
