@@ -1,3 +1,5 @@
+
+
 def deco(func):
     def wrapper():
         res = func()

@@ -6,4 +6,5 @@ yield_from_example2.py: 这里没有使用yield from语句，按照常规的方�
 gen1.py: 委托生成器和子生成器，实现返回值和主调用方传入值到子生成器
 inspect_gen.py: 在send时，生成器的不同阶段检查状态
 inspect_gen2.py: 在仅yield时，生成器的不同阶段的状态检查
-sample2.py: 即send进生成器，又从生成器yield出来，这么个写法。
+
+sample2.py: 即send进生成器，又从生成器yield出来，这么个写法。即传入又返回就叫协程。即是生产者也是消费者。
